@@ -120,6 +120,9 @@ button{
 
 #score1,#score2{
   color: white;
+  height: 30px;
+  border: 2px solid white;
+  width: 80px;
 }
 
 #resco{
