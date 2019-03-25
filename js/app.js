@@ -10,13 +10,18 @@ var player1 = "";
 var player2 = "";
 var messages = document.getElementById("msg");
 var random = (Math.random()>0.5).toString();
+var player1wins=0;
+var player2wins=0;
+var score1 = document.getElementById("score1");
+var score2 = document.getElementById("score2");
+var resco = document.getElementById("resco");
 
 createCharacterList();
 
 var jugador1 = "";
 var jugador2 = "";
 
-
+resco.addEventListener("click", resetScore);
 select1.addEventListener("click", submit1);
 select2.addEventListener("click", submit2);
 start.addEventListener("click",startgame);
@@ -133,30 +138,38 @@ function submit2(){
 function checkWin() {
 
   for (var l = 0; l <= 6; l += 3) {
-    if (checkRow(l)) {
+    var winr=checkRow(l);
+    if (winr) {
       messages.textContent = "Please press reset";
-      canvas(checkRow(l));
+      canvas(winr);
+      displayScore();
       removeListeners();
     }
   }
 
   for (var m = 0; m <= 2; m += 1) {
-    if (checkColumn(m)) {
+    var winc =checkColumn(m);
+    if (winc) {
       messages.textContent = "Please press reset";
-      canvas(checkColumn(m));
+      canvas(winc);
+      displayScore();
       removeListeners();
     }
   }
 
-  if (checkDiagonal1(0)) {
+  var winD1 = checkDiagonal1(0);
+  if (winD1) {
     messages.textContent = "Please press reset";
-    canvas(checkDiagonal1(0));
+    canvas(winD1);
+    displayScore();
     removeListeners();
   }
 
-  if (checkDiagonal2(2)) {
+ var winD2 = checkDiagonal2(2);
+  if (winD2) {
     messages.textContent = "Please press reset";
-    canvas(checkDiagonal2(2));
+    canvas(winD2);
+    displayScore();
     removeListeners();
   }
 
@@ -177,8 +190,11 @@ function checkRow(start) {
     if (positions[start].getElementsByTagName("img")[0].src === positions[start + 1].getElementsByTagName("img")[0].src &&
       positions[start + 2].getElementsByTagName("img")[0].src === positions[start + 1].getElementsByTagName("img")[0].src) {
       if (positions[start].getElementsByTagName("img")[0].src.includes(player1)) {
+        player1wins++;
+        console.log(player1wins);
         return 1;
       } else {
+        player2wins++;
         return 2;
       }
     }
@@ -193,8 +209,10 @@ function checkColumn(start) {
     if (positions[start].getElementsByTagName("img")[0].src === positions[start + 3].getElementsByTagName("img")[0].src &&
       positions[start + 6].getElementsByTagName("img")[0].src === positions[start + 3].getElementsByTagName("img")[0].src) {
       if (positions[start].getElementsByTagName("img")[0].src.includes(player1)) {
+        player1wins++;
         return 1;
       } else {
+        player2wins++;
         return 2;
       }
     }
@@ -209,8 +227,10 @@ function checkDiagonal1(start) {
     if (positions[start].getElementsByTagName("img")[0].src === positions[start + 4].getElementsByTagName("img")[0].src &&
       positions[start + 8].getElementsByTagName("img")[0].src === positions[start + 4].getElementsByTagName("img")[0].src) {
       if (positions[start].getElementsByTagName("img")[0].src.includes(player1)) {
+        player1wins++;
         return 1;
       } else {
+        player2wins++;
         return 2;
       }
     }
@@ -225,8 +245,10 @@ function checkDiagonal2(start) {
     if (positions[start].getElementsByTagName("img")[0].src === positions[start + 2].getElementsByTagName("img")[0].src &&
       positions[start + 2].getElementsByTagName("img")[0].src === positions[start + 4].getElementsByTagName("img")[0].src) {
       if (positions[start].getElementsByTagName("img")[0].src.includes(player1)) {
+        player1wins++;
         return 1;
       } else {
+        player2wins++;
         return 2;
       }
     }
@@ -354,8 +376,19 @@ draw();
 function tie(){
   var lateral2 = document.getElementsByClassName("lateral2")[0];
   var imgTie = document.createElement('img');
-  imgTie.setAttribute('src', "img/lol.gif");
+  imgTie.setAttribute('src', "img/luck.gif");
   imgTie.setAttribute('height', "400px");
   imgTie.setAttribute('width', "350px");
   lateral2.appendChild(imgTie);
+}
+
+function resetScore(){
+   player1wins = 0;
+   player2wins = 0;
+   displayScore();
+}
+
+function displayScore(){
+  score1.textContent = player1wins;
+  score2.textContent = player2wins;
 }
