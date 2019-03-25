@@ -74,6 +74,8 @@ function turn() {
     if (event.srcElement.children.length === 0) {
       messages.textContent = jugador2 +" Turn";
       var cardElement = document.createElement('img');
+      cardElement.setAttribute('height', "150px");
+      cardElement.setAttribute('width', "150px");
       cardElement.setAttribute('src', "img/" + jugador1 + ".gif");
       event.srcElement.appendChild(cardElement);
       counter++;
@@ -85,13 +87,16 @@ function turn() {
     if (event.srcElement.children.length === 0) {
       messages.textContent = jugador1 +" Turn";
       var cardElement = document.createElement('img');
+      cardElement.setAttribute('height', "150px");
+      cardElement.setAttribute('width', "150px");
       cardElement.setAttribute('src', "img/" + jugador2 + ".gif");
       event.srcElement.appendChild(cardElement);
       counter++;
       console.log(counter);
       checkWin();
       if(counter == 9){
-        messages.textContent ="Its a Tie"
+        messages.textContent ="Please press reset";
+        tie();
         counter=0;
       }
     }
@@ -138,18 +143,20 @@ function checkWin() {
   for (var m = 0; m <= 2; m += 1) {
     if (checkColumn(m)) {
       messages.textContent = "Please press reset";
-      canvas(checkRow(m));
+      canvas(checkColumn(m));
       removeListeners();
     }
   }
 
   if (checkDiagonal1(0)) {
-    messages.textContent = "The winner is player" + checkDiagonal1(0);
+    messages.textContent = "Please press reset";
+    canvas(checkDiagonal1(0));
     removeListeners();
   }
 
   if (checkDiagonal2(2)) {
-    messages.textContent = "The winner is player" + checkDiagonal2(2);
+    messages.textContent = "Please press reset";
+    canvas(checkDiagonal2(2));
     removeListeners();
   }
 
@@ -250,6 +257,7 @@ function reset0(){
 
 // canvas
  function canvas(winner){
+
 var lateral2 = document.getElementsByClassName("lateral2")[0];
 var canvas = document.createElement('canvas');
 lateral2.appendChild(canvas);
@@ -313,11 +321,12 @@ function draw () {
 
     requestAnimationFrame(draw);
 
-    ctx.font = "30px Comic Sans MS";
-    ctx.fillStyle = "red";
+    ctx.font = "40px Comic Sans MS";
+    ctx.fillStyle = "#24E8E8";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText("The winner is Player "+ winner, canvas.width/2, canvas.height/2);
+    ctx.fillText("The winner is", canvas.width/2, canvas.height/4);
+    ctx.fillText("Player "+ winner, canvas.width/2, canvas.height/2);
 
 }
 
@@ -339,4 +348,14 @@ while (pieces.length < numberOfPieces) {
 update();
 draw();
 
+}
+ ////// this prints the tie image
+
+function tie(){
+  var lateral2 = document.getElementsByClassName("lateral2")[0];
+  var imgTie = document.createElement('img');
+  imgTie.setAttribute('src', "img/lol.gif");
+  imgTie.setAttribute('height', "400px");
+  imgTie.setAttribute('width', "350px");
+  lateral2.appendChild(imgTie);
 }

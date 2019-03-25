@@ -3,7 +3,7 @@ body{
 }
 h1{
   font-size: 50px;
-  color: #00DE27;
+  color: #CDFC82;
 }
 
 label{
@@ -42,10 +42,7 @@ label{
   width: 800px;
 }
 
-img{
-  height: 150px;
-  width: 150px;
-}
+
 
 .lateral1,.lateral2{
   width: 500px;
@@ -89,7 +86,7 @@ button{
   margin: 5px 0;
   width: 120px;
   height: 40px;
-  background-color: #007414;
+  background-color: #29DB48;
   font-size: 27px;
   border: 1px solid black;
 }
@@ -111,4 +108,8 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#risa{
+  height: 400px
+  width: 350px;
 }
