@@ -44,18 +44,18 @@ function startgame(){
 }
 
 function createCharacterList(){
-  character1.innerHTML ="";
-  character2.innerHTML ="";
+  character1.innerHTML =""; //erase options
+  character2.innerHTML =""; // erase options
   character1.add(getOption("Choose your Character", ""));
-  character1.add(getOption("Robot Malo", "badrobot"));
-  character1.add(getOption("Gir", "gir"));
-  character1.add(getOption("Cthulhu", "cthul"));
-  character1.add(getOption("Bunny", "bunny"));
+  character1.add(getOption("Robot Malo", "RobotMalo"));
+  character1.add(getOption("Gir", "Gir"));
+  character1.add(getOption("Cthulhu", "Cthulhu"));
+  character1.add(getOption("Bunny", "Bunny"));
   character2.add(getOption("Choose your Character", ""));
-  character2.add(getOption("Robot Malo", "badrobot"));
-  character2.add(getOption("Gir", "gir"));
-  character2.add(getOption("Cthulhu", "cthul"));
-  character2.add(getOption("Bunny", "bunny"));
+  character2.add(getOption("Robot Malo", "RobotMalo"));
+  character2.add(getOption("Gir", "Gir"));
+  character2.add(getOption("Cthulhu", "Cthulhu"));
+  character2.add(getOption("Bunny", "Bunny"));
 
 
 }
