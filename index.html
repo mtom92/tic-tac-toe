@@ -7,7 +7,57 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+
+  <div class="game-board">
+    <div class="lateral1">
+      <!-- IDEA: Player1 section -->
+      <div class="title">
+        <h1>Tic Tac Toe</h1>
+      </div>
+      <div class="player1">
+        <label for="character1">Player1</label>
+        <select id="character1" class="selector">
+         </select>
+      <button type="button" id="select1">Selected</button>
+      </div>
+      <!-- IDEA: Player2 section -->
+      <div class="player2">
+        <label for="character2">Player2</label>
+           <select id="character2" class="selector">
+            </select>
+        <button type="button" id="select2">Selected</button>
+      </div>
+
+        <!-- IDEA: Buttons section  -->
+     <div class="justbuttons">
+       <button type="button" id="start" class="goods">START</button>
+       <button type="button" id="reset" class="goods" >RESET</button>
+     </div>
+    </div>
+    <div class="center">
+      <div class="mother">
+        <div class="father">
+          <div class="baby" id="position1"> </div>
+          <div class="baby" id="position2"> </div>
+          <div class="baby" id="position3"> </div>
+        </div>
+        <div class="father">
+          <div class="baby" id="position4"> </div>
+          <div class="baby" id="position5"> </div>
+          <div class="baby" id="position6"> </div>
+        </div>
+        <div class="father">
+          <div class="baby" id="position7"> </div>
+          <div class="baby" id="position8"> </div>
+          <div class="baby" id="position9"> </div>
+        </div>
+      </div>
+    </div>
+    <div class="lateral2">
+      <div class="messages" id="msg"></div>
+    </div>
+  </div>
+
 
   <script type="text/javascript" src="js/app.js"></script>
 </body>
