@@ -61,7 +61,7 @@ p{
   justify-content: center;
 }
 
-.player1,.player2{
+.player-console{
   display: flex;
   align-items: center;
   flex-direction: column;
