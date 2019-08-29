@@ -84,7 +84,7 @@ function turn() {
       cardElement.setAttribute('src', "img/" + jugador1 + ".gif");
       event.srcElement.appendChild(cardElement);
       counter++;
-      console.log(counter);
+      event.srcElement.removeEventListener('click',turn);
       checkWin();
     }
 
@@ -97,7 +97,7 @@ function turn() {
       cardElement.setAttribute('src', "img/" + jugador2 + ".gif");
       event.srcElement.appendChild(cardElement);
       counter++;
-      console.log(counter);
+      event.srcElement.removeEventListener('click',turn);
       checkWin();
       if(counter == 9){
         messages.textContent ="Please press reset";
@@ -109,10 +109,12 @@ function turn() {
 
 }
 
+// selecting characters
+
 function submit1(){
   player1 = character1.value;
   for(var i=0;i<character2.children.length;i++){
-      if(player1 == character2.children[i].value){
+      if(player1 == character2.children[i].value &&  character2.children[i].value != ""){
         character2.remove([i]);
       }
     }
@@ -124,7 +126,7 @@ function submit1(){
 function submit2(){
   player2 = character2.value;
   for(var i=0;i<character1.children.length;i++){
-      if(player2 == character1.children[i].value){
+      if(player2 == character1.children[i].value &&  character1.children[i].value != ""){
         character1.remove([i]);
       }
     }
@@ -133,7 +135,7 @@ function submit2(){
     }
 }
 
-
+//function to check for a win
 
 function checkWin() {
 

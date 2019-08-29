@@ -68,6 +68,22 @@ p{
   margin:10px 0;
 }
 
+.sub-console{
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  margin:10px 0;
+}
+
+.score p {
+  margin: 0;
+}
+
+.select-button{
+  display:flex;
+  align-items:flex-end;
+  margin-right: 30px;
+}
 .selector{
   height: 40px;
   width: 300px;
@@ -86,7 +102,6 @@ p{
 }
 
 button{
-  margin: 5px 0;
   width: 120px;
   height: 40px;
   background-color: #29DB48;
@@ -123,6 +138,7 @@ button{
   height: 30px;
   border: 2px solid white;
   width: 80px;
+  text-align: center;
 }
 
 #resco{
